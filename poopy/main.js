@@ -52,3 +52,17 @@ let cards = [
   "dk",
   "da",
 ];
+
+let button = document.getElementById("start");
+
+function deal(array) {
+  let temp = (Math.random() * array.length) | 0;
+  return array.splice(temp, 1)[0];
+}
+
+function displaynstore()
+
+button.addEventListener("click", function () {
+  console.log(deal(cards));
+  console.log(deal(cards));
+});
