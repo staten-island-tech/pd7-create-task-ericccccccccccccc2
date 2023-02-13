@@ -189,20 +189,76 @@ let cards = [
     value: "10",
     img: "https://www.improvemagic.com/wp-content/uploads/2020/11/kk.png",
   },
-  { name: "ca", value: "11" },
-  { name: "d2", value: "2" },
-  { name: "d3", value: "3" },
-  { name: "d4", value: "4" },
-  { name: "d5", value: "5" },
-  { name: "d6", value: "6" },
-  { name: "d7", value: "7" },
-  { name: "d8", value: "8" },
-  { name: "d9", value: "9" },
-  { name: "d10", value: "10" },
-  { name: "dj", value: "10" },
-  { name: "dq", value: "10" },
-  { name: "dk", value: "10" },
-  { name: "da", value: "11" },
+  {
+    name: "ca",
+    value: "11",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/ka.png",
+  },
+  {
+    name: "d2",
+    value: "2",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l2.png",
+  },
+  {
+    name: "d3",
+    value: "3",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l3.png",
+  },
+  {
+    name: "d4",
+    value: "4",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l4.png",
+  },
+  {
+    name: "d5",
+    value: "5",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l5.png",
+  },
+  {
+    name: "d6",
+    value: "6",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l6.png",
+  },
+  {
+    name: "d7",
+    value: "7",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l7.png",
+  },
+  {
+    name: "d8",
+    value: "8",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l8.png",
+  },
+  {
+    name: "d9",
+    value: "9",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l9.png",
+  },
+  {
+    name: "d10",
+    value: "10",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/l10.png",
+  },
+  {
+    name: "dj",
+    value: "10",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/lj.png",
+  },
+  {
+    name: "dq",
+    value: "10",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/lq.png",
+  },
+  {
+    name: "dk",
+    value: "10",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/lk.png",
+  },
+  {
+    name: "da",
+    value: "11",
+    img: "https://www.improvemagic.com/wp-content/uploads/2020/11/la.png",
+  },
 ];
 
 let hand = [];
@@ -213,12 +269,14 @@ function dealUser(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
   hand.push(x.name);
-  playhand.insertAdjacentHTML("afterbegin", `<p>amongus</p>`);
+  playhand.insertAdjacentHTML(
+    "afterbegin",
+    `<img class="dealt" src="${x.img}">`
+  );
   return x;
 }
 
 button.addEventListener("click", function () {
-  console.log(dealUser(cards).name);
   console.log(dealUser(cards).name);
   console.log(hand);
 });
