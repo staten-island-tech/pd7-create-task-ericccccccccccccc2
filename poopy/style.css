@@ -1,8 +1,20 @@
-.dealt { 
-    height: 20px;
-    length: 20px;
+.dealt {
+  height: 150px;
+  length: 90px;
+  margin: 15px;
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
-.test { 
-    font-size: 40px;
+#hand {
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#dhand {
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
 }

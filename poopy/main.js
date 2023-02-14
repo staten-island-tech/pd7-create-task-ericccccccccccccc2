@@ -1,3 +1,7 @@
+import "./style.css";
+import javascriptLogo from "./javascript.svg";
+import { setupCounter } from "./counter.js";
+
 let cards = [
   {
     name: "s2",
@@ -262,21 +266,58 @@ let cards = [
 ];
 
 let hand = [];
+let dhand = [];
 let playhand = document.getElementById("hand");
+let dealerhand = document.getElementById("dhand");
 let button = document.getElementById("start");
+
+function startUser(array) {
+  let temp = (Math.random() * array.length) | 0;
+  let x = array.splice(temp, 1)[0];
+  hand.push(x.name);
+  playhand.insertAdjacentHTML(
+    "beforeend",
+    `<img class="dealt" src="https://opengameart.org/sites/default/files/card%20back%20red.png">`
+  );
+  return x;
+}
 
 function dealUser(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
   hand.push(x.name);
   playhand.insertAdjacentHTML(
-    "afterbegin",
+    "beforeend",
+    `<img class="dealt" src="${x.img}">`
+  );
+  return x;
+}
+
+function startDealer(array) {
+  let temp = (Math.random() * array.length) | 0;
+  let x = array.splice(temp, 1)[0];
+  dhand.push(x.name);
+  dealerhand.insertAdjacentHTML(
+    "beforeend",
+    `<img class="dealt" src="https://opengameart.org/sites/default/files/card%20back%20red.png">`
+  );
+  return x;
+}
+
+function dealDealer(array) {
+  let temp = (Math.random() * array.length) | 0;
+  let x = array.splice(temp, 1)[0];
+  dhand.push(x.name);
+  dealerhand.insertAdjacentHTML(
+    "beforeend",
     `<img class="dealt" src="${x.img}">`
   );
   return x;
 }
 
 button.addEventListener("click", function () {
-  console.log(dealUser(cards).name);
-  console.log(hand);
+  let y = startDealer(cards);
+  dealDealer(cards);
+  let x = startUser(cards);
+  dealUser(cards);
 });
