@@ -265,11 +265,15 @@ let cards = [
   },
 ];
 
+let start = false;
 let hand = [];
 let dhand = [];
 let playhand = document.getElementById("hand");
 let dealerhand = document.getElementById("dhand");
+let buttdiv = document.getElementById("buttdiv");
 let button = document.getElementById("start");
+let hitbutton = document.getElementById("hit");
+let passbutton = document.getElementById("pass");
 
 function startUser(array) {
   let temp = (Math.random() * array.length) | 0;
@@ -320,4 +324,13 @@ button.addEventListener("click", function () {
   dealDealer(cards);
   let x = startUser(cards);
   dealUser(cards);
+  buttdiv.innerHTML = "";
+  buttdiv.insertAdjacentHTML(
+    "beforeend",
+    `<button id="hit">hit me</button> <button id="pass">pass :(</button>`
+  );
+  start = true;
+  console.log(start);
 });
+
+while ((start = true)) {}
