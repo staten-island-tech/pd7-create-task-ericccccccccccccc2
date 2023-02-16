@@ -1,15 +1,14 @@
 import "./style.css";
 import { cards } from "./counter.js";
 
-let start = false;
 let hand = [];
 let dhand = [];
 let playhand = document.getElementById("hand");
 let dealerhand = document.getElementById("dhand");
 let buttdiv = document.getElementById("buttdiv");
 let button = document.getElementById("start");
-let hitbutton = document.getElementById("hit");
-let passbutton = document.getElementById("pass");
+let hitbutton = document.createElement("button");
+let passbutton = document.createElement("button2");
 
 function startUser(array) {
   let temp = (Math.random() * array.length) | 0;
@@ -61,10 +60,14 @@ button.addEventListener("click", function () {
   let x = startUser(cards);
   dealUser(cards);
   buttdiv.innerHTML = "";
-  buttdiv.insertAdjacentHTML(
-    "beforeend",
-    `<button id="hit">hit me</button> <button id="pass">pass :(</button>`
-  );
+  hitbutton.innerText = "hit!!!!";
+  buttdiv.appendChild(hitbutton);
+  passbutton.innerText = "pass :(";
+  buttdiv.appendChild(hitbutton);
   start = true;
   console.log(start);
+});
+
+hitbutton.addEventListener("click", function () {
+  console.log("amongus");
 });
