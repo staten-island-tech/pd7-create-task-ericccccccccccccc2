@@ -61,7 +61,7 @@ let cards = [
   },
   {
     name: "sa",
-    value: "11",
+    value: "a",
     img: "https://www.improvemagic.com/wp-content/uploads/2020/11/pa.png",
   },
   {
@@ -126,7 +126,7 @@ let cards = [
   },
   {
     name: "ha",
-    value: "11",
+    value: "a",
     img: "https://www.improvemagic.com/wp-content/uploads/2020/11/sa.png",
   },
   {
@@ -191,7 +191,7 @@ let cards = [
   },
   {
     name: "ca",
-    value: "11",
+    value: "a",
     img: "https://www.improvemagic.com/wp-content/uploads/2020/11/ka.png",
   },
   {
@@ -256,7 +256,7 @@ let cards = [
   },
   {
     name: "da",
-    value: "11",
+    value: "a",
     img: "https://www.improvemagic.com/wp-content/uploads/2020/11/la.png",
   },
 ];

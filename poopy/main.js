@@ -8,7 +8,7 @@ let dealerhand = document.getElementById("dhand");
 let buttdiv = document.getElementById("buttdiv");
 let button = document.getElementById("start");
 let hitbutton = document.createElement("button");
-let passbutton = document.createElement("button2");
+let passbutton = document.createElement("button");
 
 function startUser(array) {
   let temp = (Math.random() * array.length) | 0;
@@ -19,6 +19,18 @@ function startUser(array) {
     `<img class="dealt" src="https://opengameart.org/sites/default/files/card%20back%20red.png">`
   );
   return x;
+}
+
+function handValue(array) {
+  let x = array.includes("a");
+  let temper = array.forEach((element) => parseInt(element));
+  console.log(array);
+  console.log(temper);
+  if ((x = true)) {
+    let temp = array.filter((element) => !isNaN(temper));
+    console.log(temp);
+    console.log("amongus");
+  }
 }
 
 function dealUser(array) {
@@ -55,19 +67,27 @@ function dealDealer(array) {
 }
 
 button.addEventListener("click", function () {
-  let y = startDealer(cards);
+  startDealer(cards);
   dealDealer(cards);
-  let x = startUser(cards);
+  startUser(cards);
   dealUser(cards);
   buttdiv.innerHTML = "";
   hitbutton.innerText = "hit!!!!";
   buttdiv.appendChild(hitbutton);
   passbutton.innerText = "pass :(";
-  buttdiv.appendChild(hitbutton);
-  start = true;
+  buttdiv.appendChild(passbutton);
+
   console.log(start);
 });
 
 hitbutton.addEventListener("click", function () {
-  console.log("amongus");
+  dealUser(cards);
+  console.log(dhand);
+  console.log(hand);
+  if (hand > dhand) {
+    dealDealer(cards);
+  }
 });
+
+let testarray = ["3", "523", "32", "5", "a"];
+handValue(testarray);
