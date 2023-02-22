@@ -22,16 +22,23 @@ function startUser(array) {
 }
 
 function handValue(array) {
-  let x = array.includes("a");
-  let temper = array.forEach((element) => parseInt(element));
-  console.log(array);
-  console.log(temper);
-  if ((x = true)) {
-    let temp = array.filter((element) => !isNaN(temper));
-    console.log(temp);
-    console.log("amongus");
+  let temp = []
+  array.forEach((element) => temp.push(parseInt(element)));
+  let moreTemp = temp.filter(Boolean);
+  let sum = 0;
+  moreTemp.forEach(element => sum += element)
+  console.log(sum);
+  let ticker = 0;
+  while(ticker < array.filter(aces => aces === "a").length) {
+    ticker++
+    if (array.includes("a") && sum > 10) {
+      sum += 1
+    } else {
+      sum += 11
+    }
+    console.log(sum);
   }
-}
+  };
 
 function dealUser(array) {
   let temp = (Math.random() * array.length) | 0;
@@ -77,7 +84,6 @@ button.addEventListener("click", function () {
   passbutton.innerText = "pass :(";
   buttdiv.appendChild(passbutton);
 
-  console.log(start);
 });
 
 hitbutton.addEventListener("click", function () {
@@ -89,5 +95,5 @@ hitbutton.addEventListener("click", function () {
   }
 });
 
-let testarray = ["3", "523", "32", "5", "a"];
+let testarray = ["a","9","a","a"];
 handValue(testarray);
