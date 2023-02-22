@@ -9,11 +9,12 @@ let buttdiv = document.getElementById("buttdiv");
 let button = document.getElementById("start");
 let hitbutton = document.createElement("button");
 let passbutton = document.createElement("button");
+let outcome = document.getElementById("outcome");
 
 function startUser(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
-  hand.push(x.name);
+  hand.push(x.value);
   playhand.insertAdjacentHTML(
     "beforeend",
     `<img class="dealt" src="https://opengameart.org/sites/default/files/card%20back%20red.png">`
@@ -27,7 +28,6 @@ function handValue(array) {
   let moreTemp = temp.filter(Boolean);
   let sum = 0;
   moreTemp.forEach(element => sum += element)
-  console.log(sum);
   let ticker = 0;
   while(ticker < array.filter(aces => aces === "a").length) {
     ticker++
@@ -36,14 +36,14 @@ function handValue(array) {
     } else {
       sum += 11
     }
-    console.log(sum);
   }
+  return sum;
   };
 
 function dealUser(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
-  hand.push(x.name);
+  hand.push(x.value);
   playhand.insertAdjacentHTML(
     "beforeend",
     `<img class="dealt" src="${x.img}">`
@@ -54,7 +54,7 @@ function dealUser(array) {
 function startDealer(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
-  dhand.push(x.name);
+  dhand.push(x.value);
   dealerhand.insertAdjacentHTML(
     "beforeend",
     `<img class="dealt" src="https://opengameart.org/sites/default/files/card%20back%20red.png">`
@@ -65,7 +65,7 @@ function startDealer(array) {
 function dealDealer(array) {
   let temp = (Math.random() * array.length) | 0;
   let x = array.splice(temp, 1)[0];
-  dhand.push(x.name);
+  dhand.push(x.value);
   dealerhand.insertAdjacentHTML(
     "beforeend",
     `<img class="dealt" src="${x.img}">`
@@ -86,14 +86,45 @@ button.addEventListener("click", function () {
 
 });
 
+function checkD() {
+  if (handValue(hand) > handValue(dhand) && handValue(hand) < 22) {
+    dealDealer(cards);
+  }
+  if (handValue(dhand) > 21) {
+    buttdiv.innerHTML = ""
+    outcome.innerHTML = "<p>you win</p>"
+    console.log(hand)
+    console.log(dhand)
+  }
+}
+
+
 hitbutton.addEventListener("click", function () {
   dealUser(cards);
-  console.log(dhand);
-  console.log(hand);
-  if (hand > dhand) {
-    dealDealer(cards);
+  if (handValue(hand) > 21) {
+    buttdiv.innerHTML = ""
+    outcome.innerHTML = "<p>you lose :(</p>"
+    console.log(hand)
+    console.log(dhand)
+  } else {
+    checkD()
   }
 });
 
-let testarray = ["a","9","a","a"];
-handValue(testarray);
+passbutton.addEventListener("click", function() {
+  if (handValue(hand) > 21) {
+    buttdiv.innerHTML = ""
+    outcome.innerHTML = "<p>you lose :(</p>"
+    console.log(hand)
+    console.log(dhand)
+  } else {
+    checkD()
+    if (handValue(dhand) > handValue(hand) && handValue(dhand) < 22) {
+      buttdiv.innerHTML = ""
+      outcome.innerHTML = "<p>you lose :(</p>"
+      console.log(hand)
+      console.log(dhand)
+    }
+    
+  }
+});
