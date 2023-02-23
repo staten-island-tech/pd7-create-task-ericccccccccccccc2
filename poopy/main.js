@@ -119,7 +119,7 @@ passbutton.addEventListener("click", function() {
     console.log(dhand)
   } else {
     checkD()
-    if (handValue(dhand) > handValue(hand) && handValue(dhand) < 22) {
+    if (handValue(dhand) >= handValue(hand) && handValue(dhand) < 22) {
       buttdiv.innerHTML = ""
       outcome.innerHTML = "<p>you lose :(</p>"
       console.log(hand)
