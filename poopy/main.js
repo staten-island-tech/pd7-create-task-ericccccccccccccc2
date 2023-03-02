@@ -76,7 +76,7 @@ function dealDealer(array) {
 button.addEventListener("click", function () {
   startDealer(cards);
   dealDealer(cards);
-  startUser(cards);
+  dealUser(cards);
   dealUser(cards);
   buttdiv.innerHTML = "";
   hitbutton.innerText = "hit!!!!";
@@ -92,7 +92,7 @@ function checkD() {
   }
   if (handValue(dhand) > 21) {
     buttdiv.innerHTML = ""
-    outcome.innerHTML = "<p>you win</p>"
+    outcome.innerHTML = `<p>you win, dealer had a hand of ${dhand}</p>`
     console.log(hand)
     console.log(dhand)
   }
@@ -103,7 +103,7 @@ hitbutton.addEventListener("click", function () {
   dealUser(cards);
   if (handValue(hand) > 21) {
     buttdiv.innerHTML = ""
-    outcome.innerHTML = "<p>you lose :(</p>"
+    outcome.innerHTML = `<p>you lose :(, dealer had a hand of ${dhand}</p>`
     console.log(hand)
     console.log(dhand)
   } else {
@@ -114,14 +114,14 @@ hitbutton.addEventListener("click", function () {
 passbutton.addEventListener("click", function() {
   if (handValue(hand) > 21) {
     buttdiv.innerHTML = ""
-    outcome.innerHTML = "<p>you lose :(</p>"
+    outcome.innerHTML = `<p>you lose :(, dealer had a hand of ${dhand}</p>`
     console.log(hand)
     console.log(dhand)
   } else {
     checkD()
     if (handValue(dhand) >= handValue(hand) && handValue(dhand) < 22) {
       buttdiv.innerHTML = ""
-      outcome.innerHTML = "<p>you lose :(</p>"
+      outcome.innerHTML = `<p>you lose :(, dealer had a hand of ${dhand}</p>`
       console.log(hand)
       console.log(dhand)
     }
