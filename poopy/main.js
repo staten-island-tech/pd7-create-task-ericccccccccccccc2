@@ -81,7 +81,7 @@ button.addEventListener("click", function () {
   buttdiv.innerHTML = "";
   hitbutton.innerText = "hit!!!!";
   buttdiv.appendChild(hitbutton);
-  passbutton.innerText = "pass :(";
+  passbutton.innerText = "stand!!!!";
   buttdiv.appendChild(passbutton);
 
 });
